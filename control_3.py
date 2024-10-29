@@ -9,7 +9,7 @@ Original file is located at
 
 import streamlit as st
 import pandas as pd
-import matplotlib as plt
+import matplotlib.pyplot as plt
 st.sidebar.title("esta es una prueba")
 st.sidebar.header("hola esto es una barra lateral")
 st.sitebar.write("barra lateral ")
