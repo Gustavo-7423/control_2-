@@ -12,7 +12,7 @@ import pandas as pd
 
 st.sidebar.title("esta es una prueba")
 st.sidebar.header("hola esto es una barra lateral")
-st.sitebar.write("barra lateral ")
+st.sidebar.write("barra lateral ")
 
 st.sidebar.image("descarga.jpg")
 if st.sidebar.button("clik en la barra lateral "):
