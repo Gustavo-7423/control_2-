@@ -16,4 +16,4 @@ st.title("Esta es mi primera pagina")
 st.header("MI primera página")
 st.image("madrir.png")
 
-df = pd.read_cvc("")
+df = pd.read_cvs("")
