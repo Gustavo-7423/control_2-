@@ -1,7 +1,8 @@
 
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+
+
 st.sidebar.title("Esta es una prueba")
 st.sidebar.header("Hola esto es una barra lateral")
 st.sidebar.write("Barra lateral ")
