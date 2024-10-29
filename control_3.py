@@ -14,7 +14,7 @@ st.sidebar.title("esta es una prueba")
 st.sidebar.header("hola esto es una barra lateral")
 st.sitebar.write("barra lateral ")
 
-st.sidebar.image("descargar.jpg")
+st.sidebar.image("descarga.jpg")
 if st.sidebar.button("clik en la barra lateral "):
     st.sidebar.write("hixe un boton lateral ")
 user_input = st.sidebar.text_input("escribe algo en la barra ")
