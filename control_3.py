@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.express as px
 
 # Cargar el archivo CSV
-uploaded_file = '/mnt/data/Datos históricos del S&P 500.csv'
+uploaded_file = ("Datos_históricos_del_S&P_500.csv")
 data = pd.read_csv(uploaded_file)
 
 # Asegurarse de que la columna de fecha esté en el formato de fecha correcto
