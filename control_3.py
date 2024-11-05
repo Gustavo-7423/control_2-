@@ -8,4 +8,4 @@ st.markdown("<p style='font-size24px;'>Aqui veremos un grafico con los datos his
 st.image("Bolsa_de_ny.jpg", width=300 )
 datos = pd.read_csv("Datos_históricos_del_S&P_500.csv")
 
-st.bar_chart(datos)
+st.hist_chart(datos)
