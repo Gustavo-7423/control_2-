@@ -24,13 +24,13 @@ st.header("Mi primera página")
 st.image("madrir.png")
 
 # Cargar archivo CSV
-uploaded_file = st.file_uploader("Sube tu archivo CSV", type=["csv"])
+uploaded_file = st.file_uploader("Datos_de_la_bolsa_500", type=["csv"])
 if uploaded_file is not None:
     # Leer el archivo CSV
     df = pd.read_csv(uploaded_file, sep=';')
     
     # Mostrar los datos del archivo CSV
-    st.write("Datos del archivo CSV:")
+    st.write("Datos_de_la_bolsa_500:")
     st.dataframe(df)
 
     # Selección de columnas para el gráfico
