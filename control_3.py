@@ -17,5 +17,18 @@ st.title("Esta es mi primera pagina")
 st.header("MI primera página")
 st.image("madrir.png")
 
-df = pd.read_csv("database_titanic.csv")
+import streamlit as st
+import plotly.express as px
+import numpy as np
 
+# Crear algunos datos
+x = np.linspace(0, 10, 100)
+y = np.cos(x)
+
+# Crear el gráfico usando Plotly
+fig = px.line(x=x, y=y, title="Gráfico de Coseno")
+fig.update_layout(xaxis_title="X", yaxis_title="cos(X)")
+
+# Mostrar el gráfico en Streamlit
+st.title("Gráfico usando Plotly en Streamlit")
+st.plotly_chart(fig)
