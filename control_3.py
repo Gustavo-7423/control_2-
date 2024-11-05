@@ -1,48 +1,36 @@
-
+import streamlit as st
+import pandas as pd
+import matplotlib.pyplot as plt
 
 # Configuración de la barra lateral
-st.sidebar.title("Esta es una prueba")
-st.sidebar.header("Hola esto es una barra lateral")
-st.sidebar.write("Barra lateral")
-
-# Cargar y mostrar una imagen en la barra lateral
-st.sidebar.image("madrir.png")
-
-# Botón en la barra lateral que muestra un mensaje cuando se hace clic
-if st.sidebar.button("Clik en la barra lateral"):
-    st.sidebar.write("Hice un botón lateral")
-
-# Campo de texto en la barra lateral donde el usuario puede escribir algo
-user_input = st.sidebar.text_input("Escribe algo en la barra")
-st.sidebar.write("Escribiste en la barra:", user_input)
-
-# Configuración de la página principal
-st.title("Esta es mi primera página")
-st.header("Mi primera página")
-st.image("madrir.png")
+st.sidebar.title("Análisis de Datos del S&P 500")
+st.sidebar.header("Opciones de visualización")
 
 # Cargar archivo CSV
-uploaded_file = st.file_uploader("Datos_de_la_bolsa_500", type=["csv"])
+uploaded_file = st.file_uploader("Sube el archivo de datos históricos del S&P 500", type=["csv"])
 if uploaded_file is not None:
     # Leer el archivo CSV
     df = pd.read_csv(uploaded_file, sep=';')
     
+    # Convertir la columna 'fecha' a tipo datetime
+    df['fecha'] = pd.to_datetime(df['fecha'], format='%Y-%m-%d')
+    
     # Mostrar los datos del archivo CSV
-    st.write("Datos_de_la_bolsa_500:")
+    st.write("Datos del archivo CSV:")
     st.dataframe(df)
 
     # Selección de columnas para el gráfico
-    st.write("Seleccione las columnas para el gráfico:")
-    x_column = st.selectbox("Columna para el eje X", df.columns)
-    y_column = st.selectbox("Columna para el eje Y", df.columns)
+    st.write("Seleccione las columnas para el gráfico de precios:")
+    x_column = "fecha"  # Columna de fechas para el eje X
+    y_column = st.selectbox("Seleccione el valor a graficar", ["ultimo", "apertura"])
 
     # Crear el gráfico si ambas columnas están seleccionadas
     if x_column and y_column:
         fig, ax = plt.subplots()
-        ax.plot(df[x_column], df[y_column], label=f"{y_column} vs {x_column}", color="blue")
-        ax.set_title(f"{y_column} vs {x_column}")
-        ax.set_xlabel(x_column)
-        ax.set_ylabel(y_column)
+        ax.plot(df[x_column], df[y_column], label=y_column, color="blue")
+        ax.set_title(f"Evolución de {y_column.capitalize()} a lo largo del tiempo")
+        ax.set_xlabel("Fecha")
+        ax.set_ylabel(y_column.capitalize())
         ax.legend()
 
         # Mostrar el gráfico en Streamlit
