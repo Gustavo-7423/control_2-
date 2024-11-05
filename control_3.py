@@ -16,19 +16,15 @@ st.sidebar.write("Escribiste en la barra:  ", user_input)
 st.title("Esta es mi primera pagina")
 st.header("MI primera página")
 st.image("madrir.png")
-
-import streamlit as st
-import plotly.express as px
-import numpy as np
-
-# Crear algunos datos
 x = np.linspace(0, 10, 100)
-y = np.cos(x)
+y = np.sin(x)
 
-# Crear el gráfico usando Plotly
-fig = px.line(x=x, y=y, title="Gráfico de Coseno")
-fig.update_layout(xaxis_title="X", yaxis_title="cos(X)")
+fig, ax = plt.subplots()
+ax.plot(x, y, label="Seno de X", color="blue")
+ax.set_title("Gráfico de Seno")
+ax.set_xlabel("X")
+ax.set_ylabel("sin(X)")
+ax.legend()
 
 # Mostrar el gráfico en Streamlit
-st.title("Gráfico usando Plotly en Streamlit")
-st.plotly_chart(fig)
+st.pyplot(fig)
