@@ -1,6 +1,4 @@
-import streamlit as st
-import pandas as pd
-import matplotlib.pyplot as plt
+
 
 # Configuración de la barra lateral
 st.sidebar.title("Esta es una prueba")
