@@ -1,7 +1,5 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
 
 # Configuración de la barra lateral
 st.sidebar.title("Esta es una prueba")
@@ -25,17 +23,3 @@ st.header("MI primera página")
 
 # Mostrar la imagen en la página principal (asegúrate de tener 'madrir.png' en la misma carpeta)
 st.image("madrir.png")
-
-# Crear un gráfico con Matplotlib
-x = np.linspace(0, 10, 100)
-y = np.sin(x)
-
-fig, ax = plt.subplots()
-ax.plot(x, y, label="Seno de X", color="blue")
-ax.set_title("Gráfico de Seno")
-ax.set_xlabel("X")
-ax.set_ylabel("sin(X)")
-ax.legend()
-
-# Mostrar el gráfico en Streamlit
-st.pyplot(fig)
